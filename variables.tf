@@ -7,21 +7,31 @@ variable "region" {
 }
 
 variable "vpc_cidr" {
-  type = string
+  type    = string
   default = "CIDR principal da VPC"
 }
 
 variable "vpc_additional_cidrs" {
-  type = list(string)
+  type        = list(string)
   description = "Lista de CIDRS adicionais da VPC"
-  default = []
+  default     = []
 }
 
 variable "public_subnets" {
   description = "Lista de Public Subnets da VPC"
   type = list(object({
-    name = string
-    cidr = string
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+}
+
+
+variable "private_subnets" {
+  description = "Lista de Private Subnets da VPC"
+  type = list(object({
+    name              = string
+    cidr              = string
     availability_zone = string
   }))
 }
