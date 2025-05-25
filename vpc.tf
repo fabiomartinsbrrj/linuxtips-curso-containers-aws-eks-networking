@@ -10,6 +10,7 @@ resource "aws_vpc" "main" {
 }
 
 /* recurso para associar CIDRs secundarios a VPC */
+# https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-sizing-ipv4 Não podemos associar qualquer CIDR a VPC.
 resource "aws_vpc_ipv4_cidr_block_association" "main" {
   count = length(var.vpc_additional_cidrs)
 
