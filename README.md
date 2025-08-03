@@ -22,3 +22,28 @@ Os id`s das subnets estarão no SSM.
 
 4. **Produtização das Regras de NACL's**  
     Refine as regras de NACL (Network Access Control Lists) para torná-las mais completas e alinhadas com as boas práticas de segurança. Certifique-se de que as regras sejam fáceis de entender e reutilizar.
+
+    ## Tocando de conta AWS
+
+    Para alternar entre contas AWS durante o desenvolvimento ou execução dos recursos:
+
+    1. **Configure um novo perfil AWS CLI**  
+        ```sh
+        aws configure
+        ```
+
+    2. **Verifique o perfil ativo**
+        ```sh
+        aws sts get-caller-identity
+        ```
+
+    3. **Remova os arquivos  terraform**  
+        ```sh
+        export AWS_REGION=us-east-1
+        rm -f .terraform/terraform.tfstate .terraform/terraform.tfstate.backup
+        ```
+
+    5. **Crie novamente o ambiente** 
+        ```sh
+        terraform init
+        ```
