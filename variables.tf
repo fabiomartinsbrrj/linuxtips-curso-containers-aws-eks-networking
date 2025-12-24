@@ -7,8 +7,8 @@ variable "region" {
 }
 
 variable "vpc_cidr" {
-  type    = string
-  default = "CIDR principal da VPC"
+  type        = string
+  description = "CIDR principal da VPC"
 }
 
 variable "vpc_additional_cidrs" {
